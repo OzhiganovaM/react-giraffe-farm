@@ -29,7 +29,8 @@ export default function GiraffeCard ( giraffeData ) {
                             </li>
                         </ul>
                     </div>
-                    <div className="giraffe-photo_edit"></div>
+                    <div className="giraffe-photo_edit"><img src={require(`${data.photo}`)} alt={data.name}/>
+                    </div>
                     <p className="giraffe-name">{data.name}</p>
                     <div className="giraffe-parameters">
                         <Sex />

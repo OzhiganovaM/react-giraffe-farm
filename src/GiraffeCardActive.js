@@ -22,8 +22,8 @@ export default function GiraffeCardActive (){
                     </ul>
                 </div>
                 <div className="giraffe-photo_edit">
-                    <label for="giraffe-photo-new"><Photo /></label>
-                    <input id="giraffe-photo-new" type="file"></input>
+                    <label for="giraffe-photo new"><Photo /></label>
+                    <input id="giraffe-photo new" type="file" accept="image/*"></input>
                 </div>
                 <p className="giraffe-name">Имя</p>
                 <div className="giraffe-parameters">

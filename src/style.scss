@@ -38,24 +38,31 @@ button {
 }
 
 .giraffes_wrapper {
-  max-width: 1042px;
+  width: 1042px;
   height: 876px;
   border-radius: $radius-main;
   padding: 17px 34px 0px 34px;
   overflow-x: auto;
 }
 
-.giraffes_tabs {
-  font-family: Roboto;
-  font-weight: 300;
-  font-size: $main-font;
-  line-height: 19px;
+.giraffes_header {
   display: flex;
+  flex-direction: row-reverse;
   align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
   position: sticky;
   left: 0;
+
+  button{
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: $main-font;
+    line-height: 19px;
+    color: $main-grey;
+    border: none;
+    background: white;
+  }
 
   hr {
     background: $main-grey;
@@ -66,7 +73,7 @@ button {
   }
 }
 
-.giraffes_tabs__pane {
+.giraffes_header__tabs {
   display: flex;
   color: $main-grey;
   position: relative;
@@ -82,7 +89,9 @@ button {
   }
 
   &.active {
-    color: $dark-grey;
+    button {
+      color: $dark-grey;
+    }
 
     hr {
       display: block;
@@ -97,7 +106,15 @@ button {
   }
 }
 
-.giraffes_tabs__notifications {
+.tab{
+  display: none;
+}
+
+.tab.active{
+  display: block;
+}
+
+.giraffes_header__notifications {
   color: $dark-grey;
   width: 220px;
   display: flex;
@@ -105,7 +122,7 @@ button {
   justify-content: space-between;
 }
 
-.giraffes_tabs__notifications-icon {
+.giraffes_header__notifications-icon {
   fill: $dark-green;
   transform: scale(1.2);
 }
@@ -131,7 +148,7 @@ button {
   align-items: flex-start;
 }
 
-.giraffe_header__add-new {
+.giraffe-window_header__add-new {
   transform: scale(1.8);
 
   rect {
