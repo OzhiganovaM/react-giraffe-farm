@@ -41,11 +41,12 @@ button {
   width: 1042px;
   height: 876px;
   border-radius: $radius-main;
-  padding: 17px 34px 0px 34px;
+  padding: 0px 34px 0px 34px;
   overflow-x: auto;
 }
 
 .giraffes_header {
+  padding: 17px 34px 0px 34px;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
@@ -139,6 +140,14 @@ button {
   justify-content: space-between;
   position: sticky;
   left: 0;
+
+  button{
+    border: none;
+    background-color: white;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+  }
 }
 
 .giraffe-window__wrapper {
@@ -164,9 +173,9 @@ button {
   margin-right: 33px;
 }
 
-.card-edit {
+.card.edit {
   max-width: 236px;
-  max-height: 535px;
+  min-height: 535px;
   background: $main-beige;
   border-radius: 28px;
   margin-right: 33px;
@@ -182,26 +191,20 @@ button {
 }
 
 .card-options_trigger {
-  margin: 7px 0px 7px 0px;
+  display: flex;
+  align-self: flex-end;
+  padding: 7px 0px 7px 0px;
 }
 
 .card-options_popover {
   display: flex;
   align-self: flex-end;
   position: relative;
-
-  &:hover ul {
-    z-index: 10;
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-  }
 }
 
 .card-options_modal {
   position: absolute;
   top: 100%;
-  opacity: 0;
   visibility: hidden;
   width: 174px;
   height: 94px;
@@ -212,32 +215,59 @@ button {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+  opacity: 0;
+  transition: 0.3s all;
 
-  &::before {
-    content: "";
-    transition-duration: 0.3s;
-    transition-property: transform;
+  &.active{
+    visibility: visible;
+    opacity: 1;
   }
 
   li {
     width: 100%;
+    :hover {
+    background: $dark-green;
   }
-
-  &.active {
-    width: 174px;
-    height: 35px;
-    padding: 0px 10px 0px 10px;
-    background: $main-green;
-    border-radius: 20px;
-    display: flex;
-  }
+}
 
   path {
     fill: white;
   }
 }
 
-.card-options_modal__edit {
+.card-options_modal-active {
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
+  width: 174px;
+  height: 45px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 20px;
+  background: $main-green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  opacity: 0;
+  transition: 0.3s all;
+
+  &.active{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  li {
+    width: 100%;
+    :hover {
+    background: $dark-green;
+  }
+}
+
+  path {
+    fill: white;
+  } 
+}
+
+.card-options_modal__button {
   width: 100%;
   height: 32px;
   display: flex;
@@ -249,10 +279,6 @@ button {
   line-height: 16px;
   color: white;
   background: $main-green;
-
-  &.active {
-    background: $dark-green;
-  }
 
   p {
     margin-left: 8px;

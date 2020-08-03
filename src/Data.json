@@ -1,5 +1,6 @@
 {
     "cards":[{
+        "id":"1",
         "photo":"./Assets/giraffes/Matilda.svg",
         "name":"Матильда",
         "sex":"Ж",
@@ -9,6 +10,7 @@
         "diet":"Растительная",
         "character":"Кокетка"
     },{
+        "id":"2",
         "photo":"./Assets/giraffes/Goga.svg",
         "name":"Гога",
         "sex":"М",
@@ -18,6 +20,7 @@
         "diet":"Шашлычная",
         "character":"Вспыльчивый"
     },{
+        "id":"3",
         "photo":"./Assets/giraffes/Leonid.svg",
         "name":"Леонид",
         "sex":"М",
@@ -27,6 +30,7 @@
         "diet":"Ест насекомых",
         "character":"Нарцисс"
     },{
+        "id":"4",
         "photo":"./Assets/giraffes/Lara.svg",
         "name":"Лара",
         "sex":"ж",

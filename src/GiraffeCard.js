@@ -2,33 +2,16 @@ import React from 'react';
 import {ReactComponent as Sex} from './Assets/icons/sex.svg';
 import {ReactComponent as Weight} from './Assets/icons/weight.svg';
 import {ReactComponent as Height} from './Assets/icons/height.svg';
-import {ReactComponent as Options} from './Assets/icons/options.svg';
-import {ReactComponent as Edit} from './Assets/icons/edit.svg';
-import {ReactComponent as Delete} from './Assets/icons/delete.svg';
+import Popover from './Popover';
 
 export default function GiraffeCard ( giraffeData ) {
     const data = giraffeData.card;
+
     return (
         <div>
-            <div id="1" className="card">
+            <div id="1" className="card ">
                 <div className="card_wrapper">
-                    <div className="card-options_popover">
-                        <Options className="card-options_trigger" />
-                        <ul className="card-options_modal">
-                            <li>
-                                <button className="card-options_modal__edit active">
-                                    <Edit />
-                                    <p>Редактировать</p>
-                                </button>
-                            </li>
-                            <li>
-                                <button className="card-options_modal__edit">
-                                    <Delete />
-                                    <p>Удалить</p>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
+                    <Popover />
                     <div className="giraffe-photo_edit"><img src={require(`${data.photo}`)} alt={data.name}/>
                     </div>
                     <p className="giraffe-name">{data.name}</p>
