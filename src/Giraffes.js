@@ -5,6 +5,7 @@ import GiraffeCardActive from './GiraffeCardActive';
 import data from './Data.json'
 import {ReactComponent as Add} from './Assets/icons/add.svg';
 import GiraffesMenu from './GiraffesMenu';
+import scrollBar from './ScrollBar';
 
 let isInit = false
 
@@ -37,70 +38,10 @@ export default function Giraffes () {
     // })
     
     // Scroll logic
-
-    function updateScroll() {
-        let maxScrollTranslate = document.querySelector('.giraffe-scroll-content').scrollWidth - document.querySelector('.giraffe-scroll-content').offsetWidth
-
-        document.querySelector('#slider').style.width = maxScrollTranslate < (document.querySelector('#scrollbar').offsetWidth - 20) ? document.querySelector('#scrollbar').offsetWidth - maxScrollTranslate + 'px' : '20px'
-        document.querySelector('#scrollbar').style.visibility = maxScrollTranslate <= 1 ? 'hidden' : 'visible'
-    }
-
+   
     useEffect(()=>{
-        updateScroll()
-
-    //  next 2 lines - not to make action repeat
-      if ( isInit ) return
-      isInit = true
-      let isDrag = false
-      let previousX = 0
-      let slider = document.querySelector('#slider')
-      
-      let content = document.querySelector('.giraffe-scroll-content')
-
-      slider.addEventListener('mousedown', e=>{
-        isDrag = true
-        previousX = e.x
-      })
-
-      document.addEventListener('mouseup', e=>{
-        isDrag = false
-      })
-
-      document.addEventListener('mousemove', e=>{
-        if (isDrag) {
-          // disable another mouse activity
-          e.preventDefault()
-          e.stopPropagation()
-
-          let maxWidth = document.querySelector('#scrollbar').offsetWidth - slider.offsetWidth - 4
-
-          if ( e.x > previousX ) {
-            // move slider right
-            let delta = (e.x - previousX)
-            let currentLeftValue = slider.style.left ? parseInt(slider.style.left) : 0
-            let newLeftValue = currentLeftValue + delta
-            if (newLeftValue > maxWidth) newLeftValue = maxWidth
-
-            slider.style.left = newLeftValue  + 'px'
-            previousX = e.x
-          } else if ( e.x < previousX ) {   
-            // move slider left 
-            let delta = (previousX - e.x)
-            let currentLeftValue = slider.style.left ? parseInt(slider.style.left) : 0
-            let newLeftValue = currentLeftValue - delta
-            if ( newLeftValue < 0 ) newLeftValue = 0
-
-            slider.style.left = newLeftValue + 'px'
-            previousX = e.x
-          }
-          // move content
-          let maxScrollTranslate = document.querySelector('.giraffe-scroll-content').scrollWidth - document.querySelector('.giraffe-scroll-content').offsetWidth
-          let leftValue = parseInt(slider.style.left)/maxWidth
-          content.style.transform = 'translateX(' + (-maxScrollTranslate*leftValue) + 'px)'
-          // change slider width
-          updateScroll()
-        }
-      })
+        scrollBar.init()
+        scrollBar.updateScroll()
     })
 
     return(
