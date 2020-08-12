@@ -42,7 +42,10 @@ button {
   height: 876px;
   border-radius: $radius-main;
   padding: 0px 34px 0px 34px;
+  overflow-y: hidden;
   overflow-x: auto;
+  margin-bottom: -1rem;
+  padding-bottom: 1rem;
 }
 
 .giraffes_header {
@@ -129,7 +132,7 @@ button {
 }
 
 .giraffe-window_header {
-  margin: 10px 0px 25px 0px;
+  margin: 10px 0px 15px 0px;
   width: 186px;
   font-weight: bold;
   font-size: 32px;
@@ -150,12 +153,14 @@ button {
   }
 }
 
-.giraffe-window__wrapper {
+.giraffe-scroll-content {
   display: flex;
+  width: 100%;
   min-height: 550px;
   display: flex;
   align-items: flex-start;
 }
+
 
 .giraffe-window_header__add-new {
   transform: scale(1.8);
@@ -235,7 +240,7 @@ button {
   }
 }
 
-.card-options_modal-active {
+.card-options_modal-edit {
   position: absolute;
   top: 100%;
   visibility: hidden;
@@ -432,10 +437,32 @@ form {
     background: #B4B4B4;
 }
 
+#scrollbar {
+  position: absolute;
+  background: $main-grey;
+  width: 1042px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#slider{
+  position: absolute;
+  background: white;
+  width:20%;
+  height: 16px;
+  border-radius: 10px;
+  margin: 2px;
+  left: 0;
+}
+
 .info-section {
   padding: 0px 17px 14px 30px;
+  margin-top: 35px;
   background: $main-green;
-  border-radius: 28px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
   width: 506px;
   height: 145px;
   display: flex;
@@ -494,7 +521,7 @@ form {
 .w3-container {
   background: $main-beige;
   border-radius: $radius-main;
-  width: 75%;
+  width:50%;
   height: 22.55px;
   margin: 4px;
 }
