@@ -35,7 +35,7 @@ class ScrollBar {
             this.slider.style.width = MIN_SCROLL_WIDTH + 'px'
         }
 
-        if ( this.maxScrollTranslate == 0 ) {
+        if ( this.maxScrollTranslate === 0 ) {
             this.scrollbar.style.visibility = 'hidden'
             this.content.style.transform = 'translateX(0px)'
             this.slider.style.left = '0px'

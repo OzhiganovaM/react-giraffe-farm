@@ -5,11 +5,12 @@ import {ReactComponent as Weight} from './Assets/icons/weight.svg';
 import {ReactComponent as Height} from './Assets/icons/height.svg';
 import PopoverActive from './PopoverActive';
 
-export default function GiraffeCardActive (){
+export default function GiraffeCardActive ( attr ){
+    const data = attr.card;
     return (
         <div className="card edit new">
             <div className="card_wrapper">
-                <PopoverActive />
+                <PopoverActive onDelete={attr.onDelete}/>
                 <div className="giraffe-photo_edit">
                     <label for="giraffe-photo new"><Photo /></label>
                     <input id="giraffe-photo new" type="file" accept="image/*"></input>

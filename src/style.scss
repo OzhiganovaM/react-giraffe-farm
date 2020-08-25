@@ -450,7 +450,6 @@ form {
 #slider{
   position: absolute;
   background: white;
-  width:20%;
   height: 16px;
   border-radius: 10px;
   margin: 2px;
@@ -511,17 +510,16 @@ form {
   }
 }
 
-.w3-light-grey {
+.progress-container {
   width: 323px;
   height: 31px;
   background: $dark-green-2;
   border-radius: $radius-main;
 }
 
-.w3-container {
+.progressBar {
   background: $main-beige;
   border-radius: $radius-main;
-  width:50%;
   height: 22.55px;
   margin: 4px;
 }

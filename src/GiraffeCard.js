@@ -4,14 +4,14 @@ import {ReactComponent as Weight} from './Assets/icons/weight.svg';
 import {ReactComponent as Height} from './Assets/icons/height.svg';
 import Popover from './Popover';
 
-export default function GiraffeCard ( giraffeData ) {
-    const data = giraffeData.card;
+export default function GiraffeCard ( attr ) {
+    const data = attr.card;
 
     return (
         <div>
             <div id="1" className="card ">
                 <div className="card_wrapper">
-                    <Popover />
+                    <Popover onDelete={attr.onDelete} />
                     <div className="giraffe-photo_edit"><img src={require(`${data.photo}`)} alt={data.name}/>
                     </div>
                     <p className="giraffe-name">{data.name}</p>

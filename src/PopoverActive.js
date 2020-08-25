@@ -3,14 +3,13 @@ import {ReactComponent as Delete} from './Assets/icons/delete.svg';
 import {ReactComponent as Options} from './Assets/icons/options.svg';
 import scrollBar from './ScrollBar';
 
-export default function PopoverActive () {
-    const deleteCard = function (e) {
-        e.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement.remove()
-        
+class PopoverActive extends React.Component {
+    deleteCard(e) {
+        console.log(e.currentTarget.parentElement.parentElement.parentElement.parentElement.parentElement.remove())
         scrollBar.updateScroll()
     }
     
-    function showPopover(e) {
+    showPopover(e) {
         let modal = e.currentTarget.querySelector('.card-options_modal-edit')
     
         if (modal.classList.contains('active')) modal.classList.remove('active')
@@ -21,12 +20,21 @@ export default function PopoverActive () {
             }, true);
     }
 
+    render() {
+        const onDelete = this.props.onDelete
+        const deleteCard = this.deleteCard
+
+        const completeDelition = e => {
+            deleteCard(e)
+            onDelete()
+        };
+
     return (
-    <div onClick={showPopover} className="card-options_popover">
+    <div onClick={this.showPopover} className="card-options_popover">
         <Options className="card-options_trigger" />
         <ul className="card-options_modal-edit">
             <li>
-                <button onClick={deleteCard} className="card-options_modal__button">
+                <button onClick={completeDelition} className="card-options_modal__button">
                     <Delete />
                     <p>Удалить</p>
                 </button>
@@ -35,3 +43,6 @@ export default function PopoverActive () {
     </div>
     )
     }
+}
+
+export default PopoverActive
